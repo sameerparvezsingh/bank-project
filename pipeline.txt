@@ -1,0 +1,68 @@
+pipeline {
+agent any
+tools {nodejs "node"}
+stages {
+    stage('gitClone'){
+        steps{
+            git 'git@10.73.97.24:sameerparvezsingh/capstone-product-v3.git'
+        }
+    }
+    stage('Build') {
+        parallel {
+            stage('accounts'){
+                steps {
+                    bat """
+                        cd accounts-microservice
+                        npm init -y
+                        npm install
+                    """
+                }
+            }
+            stage('payments'){
+                steps{
+                    bat """
+                        cd payments-microservice
+                        npm init -y
+                        npm install
+                    """
+                }
+            }
+            stage('authentication'){
+                steps{
+                    bat """
+                        cd authentication-microservice
+                        npm init -y
+                        npm install
+                    """
+                }
+            }
+            stage('frontend'){
+                steps{
+                    bat """
+                        cd frontend
+                        npm init -y
+                        npm install
+                    """
+                }
+            }
+        }
+    }
+    stage('test'){
+        parallel{
+            stage('accountsTest'){
+                steps {
+                    bat """
+                        cd accounts-microservice
+                        npm run test
+                    """
+                }
+            }
+            
+        }
+    }
+   
+
+
+}
+    
+}

@@ -1,0 +1,30 @@
+stages:
+  - build
+  - test
+
+
+build:
+  stage: build
+  script:
+    #- time npm install --no-optional
+    - npm rebuild
+  tags:
+    - CEP_RUNNER
+
+test:
+  stage: test
+  script:
+    - pwd
+    - ls
+    - cd accounts-microservice
+    - chmod -R +x ${PWD}/node_modules
+    - npm run test
+    #- cd ..
+    #- cd payments-microservice
+    #- chmod -R +x ${PWD}/node_modules
+    #- npm run test
+    #- ls -l
+
+  tags:
+    - CEP_RUNNER
+
