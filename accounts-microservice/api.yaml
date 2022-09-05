@@ -1,0 +1,160 @@
+swagger: "2.0"
+info:
+  title: Capstone Product
+  description: Capstone API user interface
+  version: 1.0
+  contact:
+    email: 
+  liscence:
+    name: Apache 2.0
+    url: "http://www.apache.org/liscences/LIS"
+  servers:
+    -url: http://localhost:4000
+    description: This is my local Server
+    -url: 
+    description: This is my original URL
+tags:
+  name: "Services"
+  description: "Methods"
+  externalDocs: null
+schemes: [http,https]
+
+
+#Return Users From get request
+paths:
+  /:
+    get:
+      tags: ["Services"]
+      summary: Checking the connection to server
+      description: People Who are already registered
+      parameters:
+        - in: query
+          name: access_token
+          required: true
+          schema:
+            type: string
+      responses:
+        200:    # status code
+          description: Successul Response
+        '401':
+          description: Access Denied
+        '404':
+          description: Account Not Found
+        '412':
+          description: Validation failed
+        '500':
+          description: Unexpected Error, Contact Admin
+
+  /balance_inquiry:
+    get:
+      tags: ["Services"]
+      summary: Balance inquiry
+      description: returns specific user
+      parameters:
+        - in: query
+          name: accountNumber
+          required: true
+          schema:
+            type: string
+        - name: userid
+          in: query
+          required: true
+          schema:
+            type : string
+        - name: access_token
+          in: query
+          required: true
+          schema:
+            type : string
+      
+      responses: 
+        '200':
+          description: OK
+        '401':
+          description: Access Denied
+        '404':
+          description: Account Not Found
+        '412':
+          description: Validation failed
+        '500':
+          description: Unexpected Error, Contact Admin
+  /funds_transfer:
+    post:
+      tags: ["Services"]
+      summary: Fund transfer
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: access_token
+          in: query
+          required: true
+          schema:
+            type : string
+        - in: body
+          name: body
+          schema:
+            type: object
+            required:
+              - from_account
+              - to_account
+              - amount
+              - userid
+              - currency
+            properties:
+              from_account:
+                type: string
+              to_account:
+                type: string
+              amount:
+                type: number
+              userid:
+                type: string
+              currency:
+                type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Access Denied
+        '404':
+          description: Account Not Found
+        '412':
+          description: Validation failed
+        '500':
+          description: Unexpected Error, Contact Admin
+  /Mini_Statement:
+    get:
+      tags: ["Services"]
+      summary: Get mini statement
+      description: returns specific user
+      parameters:
+        - in: query
+          name: Account_Number
+          required: true
+          schema:
+            type: string
+        - name: UserID
+          in: query
+          required: true
+          schema:
+            type : string
+        - name: access_token
+          in: query
+          required: true
+          schema:
+            type : string
+
+      responses: 
+        '200':
+          description: OK
+        '401':
+          description: Access Denied
+        '404':
+          description: Account Not Found
+        '412':
+          description: Validation failed
+        '500':
+          description: Unexpected Error, Contact Admin
+          

@@ -1,0 +1,56 @@
+install postgres from software house
+
+go to this pc -> C drive-> program files-> postgres ->14->bin
+open command prompt here
+
+enter command: psql -U postgres
+password: postgres
+
+creating Db and inserting values commands:
+
+create table accountdetails(
+accountnumber varchar(120) not null,
+balanceamt numeric(17,2) default 0,
+limitamt numeric(17,2) default 0,
+lienamount numeric(17,2) default 0,
+effectivebal numeric(17,2) generated always as (balanceamt+limitamt+lienamount) stored,
+currency varchar(3) not null,
+primary key(accountnumber));
+
+insert into accountdetails (accountnumber,balanceamt,currency) values('SB501',100,'INR'),('SB502',200,'INR'),('SB503',300,'INR'),('SB504',400,'INR'),('SB10000',50,'USD'),('SB10001',100,'USD'),('SB20000',45,'EUR'),('SB20001',80,'EUR'),('SB30000',200,'AUD'),('SB30001',130,'AUD'),('SB40000',300,'CAD'),('SB40001',350,'CAD');
+
+====================================
+create table userdetails(
+userid varchar(10) not null,
+accountnumber varchar(120) unique);
+
+
+insert into userdetails values('c1','SB501'),('c1','SB502'),('c2','SB503'),('c3','SB504'),('c4','SB10000'),('c4','SB20000'),('c5','SB20001'),('c1','SB10001'),('c5','SB40001'),('c2','SB30000'),('c3','SB30001'),('c2','SB40000');
+
+====================================
+create table logindetails(
+userid varchar(10) not null,
+password varchar(10) not null);
+
+
+
+insert into logindetails values('c1','pass1'),('c2','pass2'),('c3','pass3'),('c4','pass4'),('c5','pass5');
+
+=============================================
+create table currencyDetails(currencyCode varchar(3) primary key, currencyDescription varchar(40));
+
+insert into currencyDetails values('INR','Indian National Rupee'),('USD','United States Dollar'),('EUR','Euro'),('AUD','Australian Dollar'),('CAD','Canadian Dollar');
+
+=====================================
+create table currencyexchange(fromcurrency varchar(3) not null, tocurrency varchar(3) not null, value numeric(10,2) default 1 not null);
+
+insert into currencyexchange values('USD','USD',1.00),('USD','INR',74.95),('USD','EUR',0.88),('USD','AUD',1.41),('USD','CAD',1.28);
+
+=====================================
+running the code:
+in vscode or cmd go to the directory with all the cloned files and use command:
+npm install
+node ./index.js
+
+send api requests using thunder client or postman or a browser or any tool
+Start swagger UI by entering:    localhost:3000/api-docs

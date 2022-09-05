@@ -1,0 +1,15 @@
+{
+    "postgresDatabaseConnectionURLOld": "postgres://postgres:postgres@localhost:5432/postgres",
+    "postgresDatabaseConnectionURL": "postgres://postgres:postgres@10.73.53.144:5432/capstone_team_gobi",
+    "mongoDBConnectionURL":"mongodb://10.66.119.87:27017/test",
+    "mongoAtlas":"mongodb+srv://Shivang_:4M8VCWAGwMWCycig@cluster0.90cd7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "api_host_accounts":"localhost",
+    "PORT_BALANCE_INQUIRY":3005,
+    "PORT_IPC_API":3010,
+    "api_host_authentication":"localhost",
+    "PORT_AUTHENTICATION_MS":5000,
+    "api_host_frontend":"localhost",
+    "PORT_FRONTEND":30001,
+    "api_host_payments":"localhost",
+    "PORT_PAYMENTS_MICROSERVICE":5005
+}
