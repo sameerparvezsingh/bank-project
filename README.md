@@ -7,7 +7,7 @@ The Capstone Product is a banking solution using which users would be able to in
 Clone the project
 
 ```bash
-  git clone 'http://10.73.97.24/sameerparvezsingh/capstone-product-v3.git'
+  git clone ''
 ```
 
 Go to the project directory
@@ -265,11 +265,7 @@ To run Unit.tests for the Backend, run the following command
 
 ## Authors
 
-- [@sameerparvezsingh](http://10.73.97.24/sameerparvezsingh)
-- [@shainilkumar](http://10.73.97.24/shainilkumar)
-- [@shivang](http://10.73.97.24/shivang)
-- [@swethapriya](http://10.73.97.24/swethapriya)
-- [@soubhagya](http://10.73.97.24/soubhagya)
+- @sameerparvezsingh
 
 ## Feedback
 
