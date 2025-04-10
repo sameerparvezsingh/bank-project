@@ -263,14 +263,6 @@ To run Unit.tests for the Backend, run the following command
 
 ```
 
-## Authors
-
-- @sameerparvezsingh
-
-## Feedback
-
-If you have any feedback or suggestions on improving this codebase, reach out to us on MS teams.
-
 ```
 
 ```
